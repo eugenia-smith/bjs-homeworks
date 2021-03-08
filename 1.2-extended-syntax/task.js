@@ -45,7 +45,7 @@ function getAverageMark(marks){
         }
         
         result = sum / marksCut.length;
-        
+
         console.log('Массив оценок слишком велик');
         return result;
     }
