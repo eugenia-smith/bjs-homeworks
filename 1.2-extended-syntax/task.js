@@ -1,17 +1,17 @@
-function getResult(a,b,c){
-    'use strict';
+'use strict'
 
-    let discreminant = Math.pow(b, 2) - 4 * a * c;
+function getResult(a,b,c){
+
+    let discriminant = Math.pow(b, 2) - 4 * a * c;
     let x = [];
 
-    if (discreminant < 0) {
-        x = [];
-    } else if (discreminant == 0) {
+    if (discriminant == 0) {
         let value = -b/(2*a);
         x.push(value);
-    } else if (discreminant > 0) {
-        let value1 = (-b - Math.sqrt(discreminant)) / (2 * a);
-        let value2 = (-b + Math.sqrt(discreminant)) / (2 * a);
+        
+    } else if (discriminant > 0) {
+        let value1 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        let value2 = (-b + Math.sqrt(discriminant)) / (2 * a);
         x.push(value1, value2);
     }
     
