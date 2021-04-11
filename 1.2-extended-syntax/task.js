@@ -21,33 +21,18 @@ function getResult(a,b,c){
 
 function getAverageMark(marks){
     let sum = 0;
-    let result = 0;
     let marksCut = marks.slice(0, 5);
-
     
     if (marks.length == 0) {
-        return result;
+        return 0;
 
-    } else if (marks.length <= 5) {
-        for (i = 0; i < marks.length; i++) {
+    } else {
+        for (let i = 0; i < marksCut.length; i++) {
     
-            sum += marks[i];
+            sum += marksCut[i];
         }
 
-        result = sum / marks.length;
-        return result;
-
-        
-    } else if (marks.length > 5) {
-        for (j = 0; j < marksCut.length; j++) {
-            
-            sum += marksCut[j];
-        }
-        
-        result = sum / marksCut.length;
-
-        console.log('Массив оценок слишком велик');
-        return result;
+        return sum / marksCut.length;
     }
     
     return averageMark;
