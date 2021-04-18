@@ -1,7 +1,13 @@
 "use strict";
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-
+let percentSum = Number(percent);
+let contributionSum = Number(contribution);
+let amountSum = Number(amount);
+let currentDate = Date();
+let currentDateInSec = currentDate.getTime();
+let dateToPay = date.getTime();
+let creditPeriod = (dateToPay - currentDateInSec)/86400;
     
   
 if (typeof percent === "undefined" || percent <= 0) {
