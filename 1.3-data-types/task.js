@@ -1,16 +1,17 @@
 "use strict";
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-let percentSum = Number(percent) / 12;
+let percentSum = Number(percent);
+let percentPerMonth = percentSum / 1200;
 let contributionSum = Number(contribution);
 let amountSum = Number(amount);
 let currentDate = new Date();
 let currentDateInSec = currentDate.getTime();
 let dateToPay = date.getTime();
-let creditPeriod = ((dateToPay - currentDateInSec)/86400000)/30;
+let creditPeriod = Math.ceil(((dateToPay - currentDateInSec)/86400000)/30);
 let creditSum = amountSum - contributionSum;
 
-let monthlyPayment = creditSum * (percentSum + percentSum / (((1 + percentSum)^creditPeriod) - 1));
+let monthlyPayment = creditSum * (percentPerMonth + percentPerMonth / (((1 + percentPerMonth)^creditPeriod) - 1));
 
 let totalAmount = (monthlyPayment * creditPeriod).toFixed(2);
 
@@ -23,13 +24,18 @@ return `Параметр "Процентная ставка" содержит н
     return `Параметр "Сумма кредита" содержит неправильное значение ${amount}`;
 }
 
-console.log(totalAmount);
+//console.log(creditPeriod);
 
-    
     return totalAmount;
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
+    let anonymous = "Аноним";
+    let greeting = `Привет, мир! Меня зовут ${name}.`
+
+    if (typeof name === "undefined" || name === "") {
+        greeting = `Привет, мир! Меня зовут ${anonymous}.`;
+    }
+    return greeting;
 }
+
