@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 //Задача 1
 
 let x1;
@@ -46,3 +46,35 @@ function showSolutionsMessage (a, b, c) {
     }
 
 }
+*/
+
+// Задача 2
+
+let data = {
+    math: [2, 3, 4],
+    pe: [3, 3, 2, 1],
+    alg: [5, 4, 3, 2, 1]
+}
+
+function getAverageMark(marks) {
+    let sum = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+        sum += marks[i];
+    }
+    return sum / marks.length;
+}
+
+function getAverageScore(data) {
+   
+    for (let prop in data) {
+        let values = data[prop];
+        let averageValue = getAverageMark(values);
+
+        console.log(prop, averageValue);
+
+    }
+}
+
+
+
