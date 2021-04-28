@@ -50,16 +50,16 @@ function showSolutionsMessage(a, b, c) {
 // Задача 2
 
 let data = {
-    math: [],
-    pe: [],
-    alg: [],
-    phys: []
+    math: [2, 5, 4, 3],
+    pe: [5, 4, 4,],
+    alg: [3, 4, 4, 2, 5, 4],
+    phys: [5, 3]
 }
 
 function getAverageMark(marks) {
     let sum = 0;
-    
-    if (marks.length == 0){
+
+    if (marks.length == 0) {
         return sum;
     }
 
@@ -79,13 +79,8 @@ function getAverageScore(data) {
     }
 
     data.average = getAverageMark(Object.values(data));
-    
-    //let keysArr = Object.keys(data);
-    //console.log(keysArr, overallAverage);
-    //data.average = /keysArr.length;
 
     return data;
-
 }
 
 
