@@ -47,18 +47,21 @@ function showSolutionsMessage(a, b, c) {
 
 }
 
-
 // Задача 2
 
 let data = {
-    math: [2, 3, 4],
-    pe: [3, 3, 2, 1],
-    alg: [5, 4, 3, 2, 1],
-    phys: [1, 3, 4, 4, 5, 5]
+    math: [],
+    pe: [],
+    alg: [],
+    phys: []
 }
 
 function getAverageMark(marks) {
     let sum = 0;
+    
+    if (marks.length == 0){
+        return sum;
+    }
 
     for (let i = 0; i < marks.length; i++) {
         sum += marks[i];
