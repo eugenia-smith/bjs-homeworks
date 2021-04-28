@@ -2,14 +2,17 @@
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
 
-    console.log({percent, contribution, amount, date});
+    //console.log({percent, contribution, amount, date});
 
     let percentSum = parseInt(percent, 10);
     let contributionSum = parseInt(contribution, 10);
     let amountSum = parseInt(amount, 10);
     let currentDate = new Date();
     let dateToPay = date.getTime();
-    
+    //console.log(currentDate.getTime());
+    //console.log(dateToPay);
+    //console.log(percentSum, contributionSum, amountSum, dateToPay);
+
     if (typeof percent === "undefined" || percent <= 0) {
         return `Параметр "Процентная ставка" содержит неправильное значение ${percent}`;
     } else if (typeof contribution === "undefined" || contribution < 0) {
@@ -21,10 +24,17 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     }
 
     let percentPerMonth = percentSum / 100 / 12;
-    let creditPeriod = Math.round(((dateToPay - currentDate.getTime()) / 86400000) / 30);
+
+    let creditPeriod = Math.floor(((dateToPay - currentDate.getTime()) / 86400000) / 30);
+    //console.log(creditPeriod);
+
     let creditSum = amountSum - contributionSum;
+
     let monthlyPayment = creditSum * (percentPerMonth + percentPerMonth / (Math.pow((1 + percentPerMonth), creditPeriod) - 1));
+    //console.log(monthlyPayment);
+
     let totalAmount = (monthlyPayment * creditPeriod).toFixed(2);
+
 
     return totalAmount;
 }
