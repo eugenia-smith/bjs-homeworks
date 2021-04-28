@@ -33,7 +33,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     let monthlyPayment = creditSum * (percentPerMonth + percentPerMonth / (Math.pow((1 + percentPerMonth), creditPeriod) - 1));
     //console.log(monthlyPayment);
 
-    let totalAmount = (monthlyPayment * creditPeriod).toFixed(2);
+    let totalAmount = parseFloat((monthlyPayment * creditPeriod).toFixed(2));
 
 
     return totalAmount;
