@@ -1,11 +1,11 @@
 'use strict';
-/*
+
 //Задача 1
 
 let x1;
 let x2;
 
-function getSolutions (a, b, c) {
+function getSolutions(a, b, c) {
 
     let D = Math.pow(b, 2) - 4 * a * c;
     let roots = [];
@@ -31,7 +31,7 @@ function getSolutions (a, b, c) {
 }
 
 
-function showSolutionsMessage (a, b, c) {
+function showSolutionsMessage(a, b, c) {
     let result = getSolutions(a, b, c);
 
     console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
@@ -46,18 +46,22 @@ function showSolutionsMessage (a, b, c) {
     }
 
 }
-*/
 
 // Задача 2
 
 let data = {
-    math: [2, 3, 4],
-    pe: [3, 3, 2, 1],
-    alg: [5, 4, 3, 2, 1]
+    math: [2, 5, 4, 3],
+    pe: [5, 4, 4,],
+    alg: [3, 4, 4, 2, 5, 4],
+    phys: [5, 3]
 }
 
 function getAverageMark(marks) {
     let sum = 0;
+
+    if (marks.length == 0) {
+        return sum;
+    }
 
     for (let i = 0; i < marks.length; i++) {
         sum += marks[i];
@@ -66,14 +70,17 @@ function getAverageMark(marks) {
 }
 
 function getAverageScore(data) {
-   
+
     for (let prop in data) {
         let values = data[prop];
         let averageValue = getAverageMark(values);
 
-        console.log(prop, averageValue);
-
+        data[prop] = averageValue;
     }
+
+    data.average = getAverageMark(Object.values(data));
+
+    return data;
 }
 
 
